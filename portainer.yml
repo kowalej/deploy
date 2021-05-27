@@ -21,7 +21,7 @@ services:
     command:
       - '-H tcp://tasks.agent:9001'
       - '--tlsskipverify'
-      - '--admin-password=${HASHED_PASSWORD_BCRYPT?Variable not set}'
+      - '--admin-password="${HASHED_PASSWORD_BCRYPT?Variable not set}"'
     volumes:
       - portainer-data:/data
     networks:
