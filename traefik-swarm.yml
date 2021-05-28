@@ -41,6 +41,8 @@ services:
       - --log
       # Enable the Dashboard and API.
       - --api
+      # Add dynamic config file (useful to extend routes).
+      - --providers.file.filename=/traefik-config.yaml
     deploy:
       placement:
         constraints:
@@ -86,6 +88,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       # Mount the volume to store the certificates.
       - traefik-public-certificates:/certificates
+      # Mount dynamic config file.
+      - ./traefik-config.yaml:/traefik-config.yaml:ro
 
 volumes:
   # Create a volume to store the certificates, there is a constraint to make sure
