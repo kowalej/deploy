@@ -27,7 +27,7 @@ services:
       - --providers.docker.swarmmode
       # Add dynamic config via file (useful to extend routes - for things like external sites).
       - --providers.file
-      - --providers.file.filename=/traefik-config.yaml
+      - --providers.file.directory=/traefik-dynamic-config
       - --providers.file.watch=true
       # Create an entrypoint "http" listening on port 80.
       - --entrypoints.http.address=:80
@@ -91,7 +91,7 @@ services:
       # Mount the volume to store the certificates.
       - traefik-public-certificates:/certificates
       # Mount dynamic config file.
-      - ./traefik-config.yaml:/traefik-config.yaml:ro
+      - ./traefik-dynamic-config:/traefik-dynamic-config:ro
 
 volumes:
   # Create a volume to store the certificates, there is a constraint to make sure
