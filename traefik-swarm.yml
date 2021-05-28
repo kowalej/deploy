@@ -27,7 +27,7 @@ services:
       - --providers.docker.swarmmode
       # Add dynamic config via file (useful to extend routes - for things like external sites).
       - --providers.file
-      - --providers.file.filename=traefik-config.yaml
+      - --providers.file.filename=/traefik-config.yaml
       - --providers.file.watch=true
       # Create an entrypoint "http" listening on port 80.
       - --entrypoints.http.address=:80
