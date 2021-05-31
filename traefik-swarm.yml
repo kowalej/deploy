@@ -45,7 +45,7 @@ services:
       - --log
       # Enable the Dashboard and API.
       - --api
-      - --pilot.token=${{PILOT_TOKEN}}
+      - --pilot.token=${PILOT_TOKEN}
     deploy:
       placement:
         constraints:
